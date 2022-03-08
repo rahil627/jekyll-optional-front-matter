@@ -42,7 +42,7 @@ module JekyllOptionalFrontMatter
 
     # An array of Jekyll::StaticFile's with a site-defined markdown extension
     def markdown_files
-      site.static_files.select { |file| markdown_converter.matches(file.extname) }
+      site.static_files.select { |file| markdown_converter.matches(file.extname) || file.extname == '.txt' }
     end
 
     # Given a Jekyll::StaticFile, returns the file as a Jekyll::Page
